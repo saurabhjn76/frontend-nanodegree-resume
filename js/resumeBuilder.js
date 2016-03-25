@@ -4,10 +4,10 @@ This is empty on purpose! Your code to build the resume will go here.
  var name ="Saurabh Jain";
  var role="Programmer , Sports enthusiast"
 
- var formattedName=HTMLheaderName.replace("%data%",name);
+ /*var formattedName=HTMLheaderName.replace("%data%",name);
  $("#header").prepend(formattedName);
   var formattedRole=HTMLheaderRole.replace("%data%",role);
- $("#header").prepend(formattedRole);
+ $("#header").prepend(formattedRole);*/
 
  var bio={
  	"name":name,
@@ -24,4 +24,16 @@ This is empty on purpose! Your code to build the resume will go here.
  	"bioPic":"images/fry.jpg"
 
  };
- $("#main").preappend(bio);
+ //$("#main").preappend(bio.name);
+ var work={};
+ work.position="Student";
+ var education={};
+ education["name"]="Indian Institute of Information Technology,Vadodara";
+ education["years"]="2014-2018";
+ education["city"]="Ghandhinagar";
+$("#main").preappend(work["position"]);
+$("#main").preappend(education.name);
+var projects{
+	"title":"Race the Car"
+};
+
