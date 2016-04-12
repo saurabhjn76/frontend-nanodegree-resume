@@ -154,27 +154,37 @@ var education ={
  var work={
  	"jobs":[
  	{
- 		"employer":"lorem ipsum",
- 		"title":"lorem  ipsum",
- 		"dates":"2015",
- 		"description":"sds dd addsf dddddasdd dsdddd sad sd d  ds "
- 	}]
+ 		"employer":"JENESYS",
+ 		"title":"Student",
+ 		"dates":"2013",
+ 		"description":"JENESYS, Japan - East Asia Network of Exchange for Students and Youths.",
+ 		"location":"Japan"
+ 	}],
+ 	'display': function() {
+    for (var i in this.jobs) {
+      $('#workExperience').append(replaceData(i, HTMLworkStart));
+      var id = '#work-entry-' + i;
+      var job = this.jobs[i];
+      $(id).append((replaceData(job.employer, HTMLworkEmployer) + replaceData(job.title, HTMLworkTitle))
+           .replace('href="#"', ''))
+           .append(replaceData(job.dates, HTMLworkDates))
+           .append(replaceData(job.location, HTMLworkLocation))
+           .append(replaceData(job.description, HTMLworkDescription));
+    }
+  }
  };
- //$("#main").preappend(bio.name);
- 
+ work.display();
 
- for(job in work.jobs)
- {
- 	$("#workExperience").append(HTMLWorkStart);
+ //-------------------------------------------------------------
+ $('#mapDiv').append(googleMap);
 
- 	var formattedEmployer=HTMLworkEmployer.replace("%data%",work.jobs[job].employer);
- 	var formattedTitle=HTMLworkTitle.replace("%data%",work.jobs[job].title);
- 	var formattedEmployerTitle=formattedEmployer+formattedTitle;
- 	$(".work-entry:last").append(formattedEmployerTitle);
+ function inName(name) {
+  name = name.trim().split(" ");
+  console.log(name);
+  name[1] = name[1].toUpperCase();
+  name[0] = name[0].slice(0,1).toUpperCase() +
+    name[0].slice(1).toLowerCase();
+  return name[0] + " " + name[1];
+}
 
- 	var formattedDates=HTMLworkDates.replace("%data%",work.jobs[job].dates);
- 	$(".work-entry:last").append(formattedDates);
- 	var formattedDescription=HTMLworkDescription.replace("%data%",work.jobs[job].description);
- 	$(".work-entry:last").append(formattedDescription);
- }
  

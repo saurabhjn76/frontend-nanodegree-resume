@@ -29,7 +29,7 @@ var HTMLwelcomeMsg = '<span class="welcome-message">%data%</span>';
 var HTMLskillsStart = '<h3 id="skills-h3">Skills at a Glance:</h3><ul id="skills" class="flex-box"></ul>';
 var HTMLskills = '<li class="flex-item"><span class="white-text">%data%</span></li>';
 
-var HTMLworkStart = '<div class="work-entry-"></div>';
+var HTMLworkStart = '<div class="work-entry" id="work-entry-%data%"></div>';
 var HTMLworkEmployer = '<a href="#">%data%';
 var HTMLworkTitle = ' - %data%</a>';
 var HTMLworkDates = '<div class="date-text">%data%</div>';
@@ -238,12 +238,12 @@ function initializeMap() {
 Uncomment the code below when you're ready to implement a Google Map!
 */
 
-// Calls the initializeMap() function when the page loads
-//window.addEventListener('load', initializeMap);
+//Calls the initializeMap() function when the page loads
+window.addEventListener('load', initializeMap);
 
-// Vanilla JS way to listen for resizing of the window
-// and adjust map bounds
-//window.addEventListener('resize', function(e) {
-  //Make sure the map bounds get updated on page resize
-//  map.fitBounds(mapBounds);
-//});
+//Vanilla JS way to listen for resizing of the window
+//and adjust map bounds
+window.addEventListener('resize', function(e) {
+//  Make sure the map bounds get updated on page resize
+ map.fitBounds(mapBounds);
+});
