@@ -78,7 +78,7 @@ var education ={
  		"url":"http://www.iiitvadodara.ac.in"
  	}
  	],
- 	"online courses":[
+ 	"onlinecourses":[
  		{
  			"name":"Android Nanodegree Course",
  			"location":"Udacity",
@@ -101,7 +101,19 @@ var education ={
            .append(replaceData(school.location, HTMLschoolLocation))
            .append(replaceData(school.major, HTMLschoolMajor));
  		}
- 		for( var i in education.online Co)
+ 		$('#education').append(replaceData(i,HTMLonlineClasses));
+ 		for( var i in education.onlinecourses)
+ 		{
+ 			//console.log(i);
+ 			$('#education').append(replaceData(i, HTMLonlineStart));
+      		var id = '#online-entry-' + i;
+ 			HTMLonlineTitle.replace('#', education.onlinecourses[i].url);
+ 			$(id).append(replaceData(education.onlinecourses[i].name,HTMLonlineTitle) + replaceData(education.onlinecourses[i].location,HTMLonlineSchool));
+ 			$(id).append(replaceData(education.onlinecourses[i].dates, HTMLonlineDates))
+           .append(replaceData(education.onlinecourses[i].url, HTMLonlineURL).replace('#', education.onlinecourses[i].url));
+
+ 			//for(var j in )
+ 		}
 
  	}
  };
