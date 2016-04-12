@@ -25,7 +25,7 @@ var appendListOfObjects = function(list, location, formatter, valuePlaceholder) 
  		"email":"<a href='mailto:saurabhjn76@gmail.com'>saurabhjn76@gmail.com</a>",
  		"github":"<a href=https://github.com/saurabhjn76>saurabhjn76</a>",
  		"twitter":"<a href=https://twitter.com/saurabhjn76>@saurabhjn76</a>",
- 		"location":"<a href='#'>noida</a>",
+ 		"location":"<a href='#'>Noida</a>",
  	},
  	"welcomeMessage":"I am a fellow programmer from Delhi, India.I love playing badminton, chess ,table-tennis,reading quora.I have diverse interests and would love to grow in multiple directions and try different things.",
  	"skills":["Multitasking","Sportsperson",'HTML5/CSS3', 'C/C++',
@@ -66,7 +66,7 @@ var education ={
  		"location":"Noida",
  		"degree":"High School",
  		"dates":2012,
- 		"major":"Science with Inforamtion Practices",
+ 		"major":"Science with Information Practices",
  		"url":"http://www.kvnoida.edu.in"
  	},
  	{
@@ -138,9 +138,10 @@ var education ={
     	  	$('#projects').append(replaceData(i, HTMLprojectStart));
       		var id = '#project-entry-' + i;
       		var project = this.projects[i];
-      		$(id).append(replaceData(project.title, HTMLprojectTitle))
+      		//replace('#', 'https://github.com/saurabhjn76/Race-the-car');
+      		$(id).append(replaceData(project.title, HTMLprojectTitle).replace('#', 'https://github.com/saurabhjn76/Race-the-car'))
            .append(replaceData(project.dates, HTMLprojectDates))
-           .append(replaceData(project.description, HTMLprojectDescription));
+           .append(replaceData(project.description, HTMLprojectDescription))
       for (var j in project.images) {
         $(id).append(replaceData(project.images[j], HTMLprojectImage));
       }
@@ -149,7 +150,7 @@ var education ={
  };
  projects.display();
 
-/*
+
  var work={
  	"jobs":[
  	{
@@ -176,25 +177,4 @@ var education ={
  	var formattedDescription=HTMLworkDescription.replace("%data%",work.jobs[job].description);
  	$(".work-entry:last").append(formattedDescription);
  }
-
- for(project in projects.projects){
- 	$("#projects").append(HTMLprojectStart);
-
- 	var formattedTitle=HTMLprojectTitle.replace("%data%",projects.projects[project].title);
- 	$(".project-entry:last").append(formattedTitle);
- 	var formattedDates=HTMLprojectDates.replace("%data%",projects.projects[project].dates);
- 	$(".project-entry:last").append(formattedDates;
- 	var formattedDescription=HTMLprojectDescription.replace("%data%",projects.projects[project].description);
- 	$(".project-entry:last").append(formattedDescription);
-
- 	if(projects.projects[project].images.length > 0)
- 	{
- 		for(image in projects.projects[project].images)
- 		{
- 			var fromattedImage=HTMLprojectImage.replace("%data%",projects.projects[project].images[image]);
- 			$(".project-entry:last").append(fromattedImage);
- 		}
- 	}
-
- }
- */
+ 
