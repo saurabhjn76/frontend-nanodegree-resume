@@ -157,7 +157,9 @@ ul {
 }
 
 img {
-  padding: 10px;
+  padding: 20px;
+   width:320px;
+  height: 200px;
 }
 
 span {
@@ -179,6 +181,12 @@ span {
 @media only screen and (max-width:900px) {
   .biopic {
     width: 175px;
+  }
+  img {
+  padding: 10px;
+   width:300px;
+   height: 150px;
+  
   }
 }
 

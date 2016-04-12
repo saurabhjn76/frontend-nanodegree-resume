@@ -118,6 +118,36 @@ var education ={
  	}
  };
  education.display();
+ var projects={
+
+ 	"projects":[{
+ 		"title":"Race_the_car",
+ 		"dates":2015,
+ 		"description":"An exciting strategy board game created on python,as a part of learning project." +  
+		" More like a shorter version of chess, where one needs to stay focussed ,anticipate the other player moves and cover all the tracks.",
+ 		"images":[
+ 		"images/screenshot01.png",
+ 		"images/screenshot02.png",
+ 		"images/screenshot03.png"
+ 		]
+ 		
+ 	}
+ 	],
+ 	'display': function() {
+ 	   		for (var i in this.projects) {
+    	  	$('#projects').append(replaceData(i, HTMLprojectStart));
+      		var id = '#project-entry-' + i;
+      		var project = this.projects[i];
+      		$(id).append(replaceData(project.title, HTMLprojectTitle))
+           .append(replaceData(project.dates, HTMLprojectDates))
+           .append(replaceData(project.description, HTMLprojectDescription));
+      for (var j in project.images) {
+        $(id).append(replaceData(project.images[j], HTMLprojectImage));
+      }
+    }
+  }
+ };
+ projects.display();
 
 /*
  var work={
@@ -130,20 +160,7 @@ var education ={
  	}]
  };
  //$("#main").preappend(bio.name);
- var projects={
-
- 	"projects":[{
- 		"title":"Race_the_car",
- 		"dates":2014,
- 		"description":"An exciting strategy board game created 
- 		on python,as a part of learning project.  
-		More like a shorter version of chess, where one needs to stay
- 		focussed ,anticipate the other player moves and cover all the tracks."
- 		"images":[]
- 		
- 	}
- 	]
- };
+ 
 
  for(job in work.jobs)
  {
