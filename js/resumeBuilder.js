@@ -1,39 +1,171 @@
-/*
-This is empty on purpose! Your code to build the resume will go here.
- */
- var name ="Saurabh Jain";
- var role="Programmer , Sports enthusiast"
 
- /*var formattedName=HTMLheaderName.replace("%data%",name);
- $("#header").prepend(formattedName);
-  var formattedRole=HTMLheaderRole.replace("%data%",role);
- $("#header").prepend(formattedRole);*/
-
- var bio={
- 	"name":name,
- 	"role":role,
- 	"contacts":{
- 		"mobile":"+91-9868043072",
- 		"email":"saurabhjn76@gmail.com",
- 		"github":"saurabhjn76",
- 		"twitter":"@saurabhjn76",
- 		"location":"noida",
- 	},
- 	"welcomeMessage":"lorem ipsum blah blah.....",
- 	"skills":["multitasking","foody","Sportsperson","coder"],
- 	"bioPic":"images/fry.jpg"
-
- };
- //$("#main").preappend(bio.name);
- var work={};
- work.position="Student";
- var education={};
- education["name"]="Indian Institute of Information Technology,Vadodara";
- education["years"]="2014-2018";
- education["city"]="Ghandhinagar";
-$("#main").preappend(work["position"]);
-$("#main").preappend(education.name);
-var projects{
-	"title":"Race the Car"
+var replaceData = function (data, formatter, dataPlaceholder) {
+  dataPlaceholder = dataPlaceholder || '%data%';
+  return formatter.replace(dataPlaceholder, data);
+};
+var appendObjectProperties = function(object, location, formatter, propertyPlaceholder, valuePlaceholder) {
+  for (var property in object) {
+    var value = object[property];
+    var data = formatter.replace(propertyPlaceholder, property)
+                        .replace(valuePlaceholder, value);
+    $(location).append(data);
+  }
+};
+var appendListOfObjects = function(list, location, formatter, valuePlaceholder) {
+  for (var key in list) {
+    $(location).append(formatter.replace(valuePlaceholder, list[key]));
+  }
 };
 
+ var bio={
+ 	"name":"Saurabh Jain",
+ 	"role":"Programmer , Sports enthusiast",
+ 	"contacts":{
+ 		"mobile":"<a href='tel:91-9868043072'>91-9868043072</a>",
+ 		"email":"<a href='mailto:saurabhjn76@gmail.com'>saurabhjn76@gmail.com</a>",
+ 		"github":"<a href=https://github.com/saurabhjn76>saurabhjn76</a>",
+ 		"twitter":"<a href=https://twitter.com/saurabhjn76>@saurabhjn76</a>",
+ 		"location":"<a href='#'>noida</a>",
+ 	},
+ 	"welcomeMessage":"I am a fellow programmer from Delhi, India.I love playing badminton, chess ,table-tennis,reading quora.I have diverse interests and would love to grow in multiple directions and try different things.",
+ 	"skills":["Multitasking","Sportsperson",'HTML5/CSS3', 'C/C++',
+              'Python', 'JavaScript', 'Java', 'GNU Octave', 'Linux',
+              'GitHub', 'MATLAB'],
+ 	"bioPic":"images/15e6.jpg",
+ 	'display':function () {
+
+  	var name = replaceData(bio.name, HTMLheaderName);
+    var role = replaceData(bio.role, HTMLheaderRole);
+    $('#header').prepend(role).prepend(name);
+    appendObjectProperties(bio.contacts, '#topContacts', HTMLcontactGeneric, '%contact%', '%data%');
+     $('#topContacts').children().clone().appendTo('#footerContacts');
+
+    $('#header').append(replaceData(bio.bioPic, HTMLbioPic))
+                .append(replaceData(bio.welcomeMessage, HTMLwelcomeMsg))
+                .append(HTMLskillsStart);
+     appendListOfObjects(bio.skills, '#skills', HTMLskills, '%data%');
+
+
+		 		
+ 	}
+
+ };
+bio.display();
+
+var education ={
+ 	"schools":[
+ 	{
+ 		"name":"Kendriya Vidyalaya",
+ 		"location":"Shimla",
+ 		"degree":"Primary School",
+ 		"dates":2004,
+ 		"url":"http://www.kvjakhoohillsshimla.com",
+ 	},
+ 	{
+ 		"name":"Kendriya Vidyalaya",
+ 		"location":"Noida",
+ 		"degree":"High School",
+ 		"dates":2012,
+ 		"major":"Science with Inforamtion Practices",
+ 		"url":"http://www.kvnoida.edu.in"
+ 	},
+ 	{
+ 		"name":"Indian Institute of Information Technology Vadodara",
+ 		"location":"Ghandhinagar",
+ 		"degree":"Btech",
+ 		"major":["CS"],
+ 		"dates":2014,
+ 		"url":"http://www.iiitvadodara.ac.in"
+ 	}
+ 	],
+ 	"online courses":[
+ 		{
+ 			"name":"Android Nanodegree Course",
+ 			"location":"Udacity",
+ 			"degree":"Nanodegree",
+ 			"dates":2016,
+ 			"url":"https://www.udacity.com"
+ 		}
+ 	],
+ 	'display': function (){
+ 		for(var i in education.schools)
+ 		{
+ 			$('#education').append(replaceData(i, HTMLschoolStart));
+ 			var id='#school-entry-'+i;
+ 			//console.log(id);
+ 			var school=education.schools[i];
+ 			//console.log(school.dates);
+ 			$(id).append((replaceData(school.name, HTMLschoolName) + replaceData(school.degree, HTMLschoolDegree))
+           .replace('#', school.url))
+           .append(replaceData(school.dates, HTMLschoolDates))
+           .append(replaceData(school.location, HTMLschoolLocation))
+           .append(replaceData(school.major, HTMLschoolMajor));
+ 		}
+ 		for( var i in education.online Co)
+
+ 	}
+ };
+ education.display();
+
+/*
+ var work={
+ 	"jobs":[
+ 	{
+ 		"employer":"lorem ipsum",
+ 		"title":"lorem  ipsum",
+ 		"dates":"2015",
+ 		"description":"sds dd addsf dddddasdd dsdddd sad sd d  ds "
+ 	}]
+ };
+ //$("#main").preappend(bio.name);
+ var projects={
+
+ 	"projects":[{
+ 		"title":"Race_the_car",
+ 		"dates":2014,
+ 		"description":"An exciting strategy board game created 
+ 		on python,as a part of learning project.  
+		More like a shorter version of chess, where one needs to stay
+ 		focussed ,anticipate the other player moves and cover all the tracks."
+ 		"images":[]
+ 		
+ 	}
+ 	]
+ };
+
+ for(job in work.jobs)
+ {
+ 	$("#workExperience").append(HTMLWorkStart);
+
+ 	var formattedEmployer=HTMLworkEmployer.replace("%data%",work.jobs[job].employer);
+ 	var formattedTitle=HTMLworkTitle.replace("%data%",work.jobs[job].title);
+ 	var formattedEmployerTitle=formattedEmployer+formattedTitle;
+ 	$(".work-entry:last").append(formattedEmployerTitle);
+
+ 	var formattedDates=HTMLworkDates.replace("%data%",work.jobs[job].dates);
+ 	$(".work-entry:last").append(formattedDates);
+ 	var formattedDescription=HTMLworkDescription.replace("%data%",work.jobs[job].description);
+ 	$(".work-entry:last").append(formattedDescription);
+ }
+
+ for(project in projects.projects){
+ 	$("#projects").append(HTMLprojectStart);
+
+ 	var formattedTitle=HTMLprojectTitle.replace("%data%",projects.projects[project].title);
+ 	$(".project-entry:last").append(formattedTitle);
+ 	var formattedDates=HTMLprojectDates.replace("%data%",projects.projects[project].dates);
+ 	$(".project-entry:last").append(formattedDates;
+ 	var formattedDescription=HTMLprojectDescription.replace("%data%",projects.projects[project].description);
+ 	$(".project-entry:last").append(formattedDescription);
+
+ 	if(projects.projects[project].images.length > 0)
+ 	{
+ 		for(image in projects.projects[project].images)
+ 		{
+ 			var fromattedImage=HTMLprojectImage.replace("%data%",projects.projects[project].images[image]);
+ 			$(".project-entry:last").append(fromattedImage);
+ 		}
+ 	}
+
+ }
+ */
