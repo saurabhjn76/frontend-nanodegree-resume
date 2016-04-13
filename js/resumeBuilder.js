@@ -71,7 +71,7 @@ var education ={
  	},
  	{
  		"name":"Indian Institute of Information Technology Vadodara",
- 		"location":"Ghandhinagar",
+ 		"location":"Gandhinagar",
  		"degree":"Btech",
  		"major":["CS"],
  		"dates":2014,

@@ -91,7 +91,9 @@ a {
   margin-top: 10px;
   display: block;
 }
-
+#header a {
+  display: inline-block;
+}
 .welcome-message {
   font-style: italic;
   font-size: 18px;
@@ -130,6 +132,10 @@ a {
 /* TODO: Replace with image later */
 #header {
   background-color: #484848;
+   display: inline-block;
+}
+#topContcts{
+  display: inline-block;
 }
 
 .flex-box {
@@ -147,6 +153,11 @@ a {
 
 ul {
   list-style-type: none;
+  display: inline;
+}
+li {
+    text-align: -webkit-match-parent;
+    display: inline-block;
 }
 
 .biopic {
