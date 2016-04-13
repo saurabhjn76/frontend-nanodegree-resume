@@ -31,7 +31,7 @@ var appendListOfObjects = function(list, location, formatter, valuePlaceholder) 
  	"skills":["Multitasking","Sportsperson",'HTML5/CSS3', 'C/C++',
               'Python', 'JavaScript', 'Java', 'GNU Octave', 'Linux',
               'GitHub', 'MATLAB'],
- 	"bioPic":"images/15e6.jpg",
+ 	"bioPic":"images/try.png",
  	'display':function () {
 
   	var name = replaceData(bio.name, HTMLheaderName);
